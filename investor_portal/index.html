@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shark Tank Investor Portal | Cebroid 2k26</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/lucide.min.js"></script>
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <div class="container">
+        <!-- LOGIN SECTION -->
+        <section id="login-section" class="glass-panel active">
+            <div class="logo-container">
+                <i data-lucide="waves" class="logo-icon"></i>
+                <h1>Shark Tank</h1>
+                <p>Cebroid 2k26 Investor Portal</p>
+            </div>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <i data-lucide="user" class="input-icon"></i>
+                    <input type="text" id="userId" placeholder="Investor ID" required>
+                </div>
+                <div class="input-group">
+                    <i data-lucide="lock" class="input-icon"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-primary" id="login-btn">
+                    <span>Enter the Tank</span>
+                    <i data-lucide="arrow-right"></i>
+                </button>
+                <div id="login-error" class="error-msg"></div>
+            </form>
+        </section>
+
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard-section" class="glass-panel hidden">
+            <header>
+                <div>
+                    <h2>Welcome, <span id="display-user">Investor</span></h2>
+                    <p class="role-badge" id="display-role">Jury</p>
+                </div>
+                <button id="logout-btn" class="btn-icon" title="Logout">
+                    <i data-lucide="log-out"></i>
+                </button>
+            </header>
+
+            <div class="balance-card" id="balance-card">
+                <div class="coin-icon" id="coin-icon">
+                    <i data-lucide="coins"></i>
+                </div>
+                <div class="balance-info">
+                    <h3>Available Balance</h3>
+                    <div class="amount">
+                        <span id="display-balance">0</span>
+                        <span class="coin-label" id="display-coin-type">Gold Coins</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="investment-area">
+                <h3>Make an Investment</h3>
+                <p>Scan a QR code or enter the Project ID manually to invest.</p>
+                
+                <form id="invest-form">
+                    <div class="input-group">
+                        <i data-lucide="briefcase" class="input-icon"></i>
+                        <input type="text" id="projectId" placeholder="Project ID (e.g. PRJ01)" required>
+                    </div>
+                    <div class="input-group">
+                        <i data-lucide="banknote" class="input-icon"></i>
+                        <input type="number" id="amount" placeholder="Amount to invest" min="1" required>
+                    </div>
+                    <button type="submit" class="btn-invest" id="invest-btn">
+                        <span>Invest Now</span>
+                        <i data-lucide="trending-up"></i>
+                    </button>
+                    <div id="invest-msg" class="status-msg"></div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

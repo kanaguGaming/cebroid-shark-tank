@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shark Tank Contestant Portal | Cebroid 2k26</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/lucide.min.js"></script>
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-effects">
+        <div class="grid-lines"></div>
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <div class="container">
+        <!-- LOGIN SECTION -->
+        <section id="login-section" class="glass-panel active">
+            <div class="logo-container">
+                <i data-lucide="presentation" class="logo-icon"></i>
+                <h1>Project Expo</h1>
+                <p>Cebroid 2k26 Contestant Portal</p>
+            </div>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <i data-lucide="user" class="input-icon"></i>
+                    <input type="text" id="userId" placeholder="Project ID (e.g. PRJ01)" required>
+                </div>
+                <div class="input-group">
+                    <i data-lucide="lock" class="input-icon"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-primary" id="login-btn">
+                    <span>View Dashboard</span>
+                    <i data-lucide="arrow-right"></i>
+                </button>
+                <div id="login-error" class="error-msg"></div>
+            </form>
+        </section>
+
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard-section" class="glass-panel hidden">
+            <header>
+                <div>
+                    <h2>Project <span id="display-project-id">ID</span></h2>
+                    <p class="role-badge">Live Funding Status</p>
+                </div>
+                <div class="header-actions">
+                    <button id="refresh-btn" class="btn-icon" title="Refresh Scores">
+                        <i data-lucide="refresh-cw"></i>
+                    </button>
+                    <button id="logout-btn" class="btn-icon" title="Logout">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <!-- Gold Coins (Jury) -->
+                <div class="stat-card gold-theme">
+                    <div class="stat-header">
+                        <div class="coin-icon">
+                            <i data-lucide="coins"></i>
+                        </div>
+                        <h3>Jury Funding</h3>
+                    </div>
+                    <div class="stat-body">
+                        <div class="amount" id="gold-score">0</div>
+                        <div class="label">Gold Coins</div>
+                    </div>
+                </div>
+
+                <!-- Silver Coins (Public) -->
+                <div class="stat-card silver-theme">
+                    <div class="stat-header">
+                        <div class="coin-icon">
+                            <i data-lucide="coins"></i>
+                        </div>
+                        <h3>Public Funding</h3>
+                    </div>
+                    <div class="stat-body">
+                        <div class="amount" id="silver-score">0</div>
+                        <div class="label">Silver Coins</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="fundingChart"></canvas>
+            </div>
+            
+            <div id="status-msg" class="status-msg"></div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
